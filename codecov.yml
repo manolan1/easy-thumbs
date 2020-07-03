@@ -1,0 +1,3 @@
+ignore:
+  - "**/*[sS]pec.js"
+  - "**/*[sS]pec.it.js"

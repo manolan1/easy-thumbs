@@ -1,0 +1,66 @@
+{
+    "name": "easy-thumbs",
+    "version": "0.0.1",
+    "description": "A simple thumbnail generator",
+    "main": "./index.js",
+    "files": [
+        "./index.js",
+        "./cli.js",
+        "/src"
+    ],
+    "scripts": {
+        "test": "nyc --reporter=lcov --reporter=text-summary npm run test:unit",
+        "test:allcov": "nyc --reporter=lcov --reporter=text-summary npm run test:all",
+        "test:unit": "jasmine",
+        "test:it": "jasmine --config=spec/support/jasmine-it.json",
+        "test:local": "jasmine --config=spec/support/jasmine-local.json",
+        "test:all": "jasmine --config=spec/support/jasmine-all.json",
+        "test:generate": "jasmine ./spec/support/GenerateExpectedResults.js",
+        "lint": "eslint . --ext .js",
+        "prepublishOnly": "npm run test:allcov && npm run lint",
+        "preversion": "npm run lint",
+        "postversion": "git push && git push --tags",
+        "install": "node install.js",
+        "postinstall": "node install.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/manolan1/easy-thumbs.git"
+    },
+    "author": "Mark Nolan <manolan@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/manolan1/easy-thumbs/issues"
+    },
+    "homepage": "https://github.com/manolan1/easy-thumbs#readme",
+    "devDependencies": {
+        "@ffmpeg-installer/ffmpeg": "^1.0.20",
+        "@ffprobe-installer/ffprobe": "^1.0.12",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.5.0",
+        "jasmine": "^3.6.1",
+        "looks-same": "^7.2.3",
+        "nyc": "^15.1.0"
+    },
+    "dependencies": {
+        "easy-defer": "^1.0.1",
+        "easy-template-string": "^1.0.1",
+        "fluent-ffmpeg": "^2.1.2",
+        "jimp": "^0.14.0",
+        "tmp": "^0.2.1",
+        "yargs": "^16.0.3"
+    },
+    "peerDependencies": {
+        "@ffmpeg-installer/ffmpeg": "^1.0.20",
+        "@ffprobe-installer/ffprobe": "^1.0.12"
+    },
+    "keywords": [
+        "thumb",
+        "thumbnail",
+        "index sheet"
+    ],
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "bin": "./cli.js"
+}
