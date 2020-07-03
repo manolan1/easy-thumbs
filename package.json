@@ -1,0 +1,48 @@
+{
+    "name": "easy-thumbs",
+    "version": "0.0.1",
+    "description": "A simple thumbnail generator",
+    "main": "./dist/ThumbnailGenerator.js",
+    "types": "./dist/ThumbnailGenerator.d.ts",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "test": "nyc --extension .ts --reporter=lcov --reporter=text-summary npm run test:unit",
+        "test:unit": "ts-node node_modules/jasmine/bin/jasmine",
+        "lint": "eslint . --ext .ts",
+        "prepublishOnly": "npm test && npm run lint",
+        "prepare": "npm run build",
+        "preversion": "npm run lint",
+        "postversion": "git push && git push --tags"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/manolan1/easy-thumbs.git"
+    },
+    "author": "Mark Nolan <manolan@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/manolan1/easy-thumbs/issues"
+    },
+    "homepage": "https://github.com/manolan1/easy-thumbs#readme",
+    "devDependencies": {
+        "@types/jasmine": "^3.5.11",
+        "@typescript-eslint/eslint-plugin": "^3.5.0",
+        "@typescript-eslint/parser": "^3.5.0",
+        "eslint": "^7.3.1",
+        "jasmine": "^3.5.0",
+        "nyc": "^15.1.0",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.6"
+    },
+    "keywords": [
+        "thumb",
+        "thumbnail",
+        "index sheet"
+    ],
+    "engines": {
+        "node": ">=10.0.0"
+    }
+}
